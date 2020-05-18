@@ -1,10 +1,6 @@
 import json
 from collections import ChainMap
 
-# import matplotlib.pyplot as plt; plt.rcdefaults()
-# import numpy as np
-# import matplotlib.pyplot as plt
-
 file_name = 'south-park.json'
 all_seasons = [str(x) for x in range(1,19)] 
 
