@@ -37,22 +37,26 @@ all_characters.sort()
 
 all_lines_by_season = []
 
-mock_all_seasons = ['1', '2']
-mock_all_characters = ['Stan', 'Kyle', 'Kenny', 'Chef', 'Cartman']
+# mock_all_seasons = ['1', '2']
+# mock_all_characters = ['Stan', 'Kyle', 'Kenny', 'Chef', 'Cartman']
 
-for season in mock_all_seasons:
+for season in all_seasons:
     print(f'Current season: {season}')
     current_key_season = data[season] # data['1']
     lines_by_characters_per_season = []
-    for character in mock_all_characters:
+    for character in all_characters:
         print(f'Current character: {character}')
         character_lines = []
         for item in current_key_season:
             if item['character'] == character:
                 character_lines.append(item['line'])
         
+        # num of words spoken
+        all_lines_as_compiled_string = ' '.join(character_lines)
+        num_of_words_spoken = len(all_lines_as_compiled_string.split())
+        
         if character_lines:
-            character_lines_dict = {character: character_lines} # {stan: ['', '']}
+            character_lines_dict = {character: character_lines, 'number_of_lines': len(character_lines), 'number_of_words_spoken': num_of_words_spoken} # {stan: ['', '']}
             print(f'character lines dict: {character_lines_dict}')
             lines_by_characters_per_season.append(character_lines_dict) # [ {stan: ['', '']}, {kenny: ['', '']}, ]
             print(f'array: {lines_by_characters_per_season}')
