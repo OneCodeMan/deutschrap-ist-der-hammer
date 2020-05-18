@@ -37,18 +37,19 @@ all_characters.sort()
 
 all_lines_by_season = []
 
-mock_all_seasons = ['1', '2', '3']
+mock_all_seasons = ['1', '2']
+mock_all_characters = ['Stan', 'Kyle', 'Kenny', 'Chef', 'Cartman']
 
-for season in all_seasons:
+for season in mock_all_seasons:
     print(f'Current season: {season}')
     current_key_season = data[season] # data['1']
     lines_by_characters_per_season = []
-    for character in all_characters:
+    for character in mock_all_characters:
         print(f'Current character: {character}')
         character_lines = []
         for item in current_key_season:
             if item['character'] == character:
-                character_lines.append(line['line'])
+                character_lines.append(item['line'])
         
         if character_lines:
             character_lines_dict = {character: character_lines} # {stan: ['', '']}
